@@ -14,6 +14,7 @@ RUN useradd -m hadoop -G root -s /bin/bash \
 
 
 ARG HADOOP_VERSION=2.7.6
+ARG JAVA_VERSION=1.8.0_171
 ENV HADOOP_HOME=/opt/hadoop-${HADOOP_VERSION}
 ARG HADOOP_FILE_NAME=hadoop-${HADOOP_VERSION}.tar.gz
 ARG HADOOP_SHA=F2327EA93F4BC5A5D7150DEE8E0EDE196D3A77FF8526A7DD05A48A09AAE25669
@@ -36,6 +37,7 @@ WORKDIR /tmp
 #调试用
 #COPY hadoop-${HADOOP_VERSION}.tar.gz /tmp/hadoop-${HADOOP_VERSION}.tar.gz
 RUN sudo wget http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VERSION}/${HADOOP_FILE_NAME} \
+#RUN sudo echo "aa" \
 	&& sudo echo "${HADOOP_SHA}  ${HADOOP_FILE_NAME}">/tmp/${HADOOP_FILE_NAME}.sha \
 	&& sudo sha256sum -c ${HADOOP_FILE_NAME}.sha \
 	&& sudo tar -xvf /tmp/${HADOOP_FILE_NAME} -C /opt/ \
@@ -55,7 +57,7 @@ ADD yarn-site.xml ${HADOOP_HOME}/etc/hadoop/yarn-site.xml
 ADD container-executor.cfg ${HADOOP_HOME}/etc/hadoop/container-executor.cfg
 
 #修改hadoop_env.sh中JAVA_HOME等配置
-RUN sudo sed -i '/^export JAVA_HOME/ s:.*:export JAVA_HOME=/opt/jdk/jdk1.8.0_161\n:' ${HADOOP_HOME}/etc/hadoop/hadoop-env.sh
+RUN sudo sed -i '/^export JAVA_HOME/ s:.*:export JAVA_HOME=/opt/jdk/jdk'${JAVA_VERSION}'\n:' ${HADOOP_HOME}/etc/hadoop/hadoop-env.sh
 RUN sudo chown -R hadoop:root ${HADOOP_HOME} 
 
 ADD entrypoint.sh /entrypoint.sh
