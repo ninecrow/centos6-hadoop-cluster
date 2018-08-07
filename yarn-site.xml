@@ -25,27 +25,28 @@
 	</property>
 	<property>
 		<name>yarn.resourcemanager.hostname</name>
-		<value>HadoopMaster1</value>
+		<value>0.0.0.0</value>
+		<description>替换为hostname或者ip</description>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.address</name>
-		<value>HadoopMaster1:8032</value>
+		<value>0.0.0.0:8032</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.scheduler.address</name>
-		<value>HadoopMaster1:8030</value>
+		<value>0.0.0.0:8030</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.webapp.address</name>
-		<value>HadoopMaster1:8088</value>
+		<value>0.0.0.0:8088</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
-		<value>HadoopMaster1:8031</value>
+		<value>0.0.0.0:8031</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.admin.address</name>
-		<value>HadoopMaster1:8033</value>
+		<value>0.0.0.0:8033</value>
 	</property>
 	<property>
 		<name>yarn.nodemanager.vmem-check-enabled</name>
