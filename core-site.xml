@@ -20,7 +20,7 @@
 	<property>
 		<name>fs.defaultFS</name>
 		<value>hdfs://localhost:9000</value>
-		<description>namenode url</description>
+		<description>namenode url,localhost替换为实际的hostname</description>
 	</property>
 	<property>
 		<name>io.file.buffer.size</name>

@@ -23,11 +23,12 @@
 	</property>
 	<property>
 		<name>mapreduce.jobhistory.address</name>
-		<value>HadoopMaster2:10020</value>
+		<value>0.0.0.0:10020</value>
+		<description>修改为history服务hostname或ip</description>
 	</property>
 	<property>
 		<name>mapreduce.jobhistory.webapp.address</name>
-		<value>HadoopMaster2:19888</value>
+		<value>0.0.0.0:19888</value>
 	</property>
 	<property>
 		<name>mapreduce.map.memory.mb</name>
