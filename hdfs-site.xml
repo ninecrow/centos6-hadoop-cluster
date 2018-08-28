@@ -23,18 +23,18 @@
 		<description>namenode的目录位置</description>
 	</property>
 	<property>
-		<name>dfs.datanode.name.dir</name>
+		<name>dfs.datanode.data.dir</name>
 		<value>file:/home/hadoop/dfs/data</value>
 		<description>datanode的目录位置</description>
 	</property>
 	<property>
 		<name>dfs.replication</name>
-		<value>2</value>
+		<value>3</value>
 		<description>block 文件副本数，默认为3</description>
 	</property>
 	<property>
 		<name>dfs.blocksize</name>
-		<value>268435456</value>
+		<value>134217728</value>
 		<description>默认最大HDFS blocksize为256MB</description>
 	</property>
 	<property>
